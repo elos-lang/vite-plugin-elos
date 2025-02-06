@@ -1,0 +1,30 @@
+{
+  "name": "vite-plugin-elos",
+  "version": "1.0.0",
+  "description": "The Vite plugin for ELOS (Language to create HTML emails)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elos-lang/vite-plugin-elos.git"
+  },
+  "keywords": [
+    "elos",
+    "vite",
+    "html",
+    "emails",
+    "emails",
+    "language"
+  ],
+  "author": "Rein Van Oyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elos-lang/vite-plugin-elos/issues"
+  },
+  "homepage": "https://github.com/elos-lang/vite-plugin-elos#readme",
+  "dependencies": {
+    "elos": "^0.1.0"
+  }
+}
