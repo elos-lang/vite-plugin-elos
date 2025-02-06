@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "The Vite plugin for ELOS (Language to create HTML emails)",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
