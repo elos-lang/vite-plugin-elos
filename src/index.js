@@ -23,9 +23,9 @@ export default function elos() {
 		generateBundle(_, bundle) {
 			for (const [fileName, chunk] of Object.entries(bundle)) {
 				if (chunk.type === 'chunk' && chunk.isEntry) {
-					const match = chunk.code.match(/export\s+default\s+("(?:[^"\\]|\\.)*")/);
+					const match = chunk.code.match(/export\s+default\s+"(.*)"/);
 					if (match) {
-						const htmlContent = JSON.parse(match[1]); // Extract transformed HTML
+						const htmlContent = match[1]; // Extract transformed HTML
 						const outputFileName = fileName.replace(/\.(js|ts)$/, '.html');
 
 						// Emit as an asset in the output bundle
