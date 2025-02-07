@@ -1,4 +1,5 @@
-import { lex, parse, compile } from 'elos';
+import { dirname } from 'path';
+import { Elos } from 'elos';
 
 export default function elos() {
 
@@ -10,9 +11,13 @@ export default function elos() {
 		transform(code, id) {
 			if (id.endsWith('.elos')) {
 				try {
-					const tokens = lex(code);
-					const ast = parse(tokens);
-					const html = compile(ast);
+
+					Elos.on('fileTouch', (data) => {
+						this.addWatchFile(data.filename);
+					});
+
+					const path = dirname(id);
+					const html = Elos.make(code, path);
 
 					// Store for later writing
 					collectedFiles[id] = html;
@@ -26,6 +31,13 @@ export default function elos() {
 					this.error(`Error compiling ELOS file ${id}: ${error.message}`);
 				}
 			}
+		},
+		handleHotUpdate({ file, server }) {
+			// Check if the changed file is an included file
+			server.ws.send({
+				type: "full-reload",
+				path: "*"
+			});
 		},
 		generateBundle(_, bundle) {
 			for (const [id, htmlContent] of Object.entries(collectedFiles)) {
