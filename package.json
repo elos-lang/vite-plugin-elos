@@ -26,6 +26,6 @@
   },
   "homepage": "https://github.com/elos-lang/vite-plugin-elos#readme",
   "dependencies": {
-    "elos": "^0.3.0"
+    "elos": "^0.4.0"
   }
 }
